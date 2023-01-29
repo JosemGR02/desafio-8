@@ -36,8 +36,9 @@ routerProductos.put('/:id', (solicitud, respuesta) => {
 });
 
 routerProductos.delete('/:id', (solicitud, respuesta) => {
-    const prods = Contenedor.productos.filter(prod => prod.id != solicitud.params.id)
-    respuesta.send({ prods });
+    const id = solicitud.params.id;
+    const producto = ContenedorProds.eliminar(id);
+    respuesta.send(producto);
 })
 
 module.exports = routerProductos;
